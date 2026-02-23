@@ -1,12 +1,12 @@
 #include "../Includes.hpp"
 
-class AchievementList : public Popup<> {
+class AchievementList : public Popup {
 
 private:
 
     ScrollLayer* m_scrollLayer = nullptr;
 
-    bool setup() override;
+    bool init() override;
 
     ~AchievementList();
 

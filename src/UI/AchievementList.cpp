@@ -10,7 +10,7 @@ AchievementList::~AchievementList() {
 AchievementList* AchievementList::create() {
     auto ret = new AchievementList();
 
-    ret->initAnchored(300, 260);
+    ret->init();
     ret->autorelease();
 
     return ret;
@@ -32,7 +32,9 @@ void AchievementList::update() {
 }
 
 
-bool AchievementList::setup() {
+bool AchievementList::init() {
+    Popup::init(300, 260);
+    
     setTitle("Achievements");
 
     Manager::get().m_currentListPopup = this;

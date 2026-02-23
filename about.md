@@ -6,4 +6,4 @@ If you experience any problems, bugs, or unexpected behavior while using this mo
 
 Feel free to suggest new achievements for the mod!
 #
-* Concept by Satrik , developed by Zilko
+* Concept by Satrik , developed by [Zilko](https://www.fiverr.com/zilkowo/make-you-a-geometry-dash-mod-of-your-design)

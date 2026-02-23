@@ -17,7 +17,7 @@ public:
 
     std::vector<int> m_beatenLevels;
 
-    std::deque<AchievementPopup*> m_queuedPopups;
+    std::deque<int> m_queuedPopups;
 
     std::chrono::steady_clock::time_point m_rageQuitTime;
     std::chrono::steady_clock::time_point m_lastMovementTime;

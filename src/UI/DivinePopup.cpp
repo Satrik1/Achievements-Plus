@@ -308,7 +308,7 @@ bool DivinePopup::init() {
 
     m_bg->removeFromParent();
 
-    m_bg = CCScale9Sprite::create("gold-square.png"_spr);
+    m_bg = NineSlice::create("gold-square.png"_spr);
     m_bg->setContentSize({300, 80});
 
     m_layerColor->addChild(m_bg);

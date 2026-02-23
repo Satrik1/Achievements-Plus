@@ -12,26 +12,14 @@ protected:
     CCSprite* m_badgeShadow = nullptr;
     CCSprite* m_glow = nullptr;
 
-    CCScale9Sprite* m_bg = nullptr;
-    CCScale9Sprite* m_bg2 = nullptr;
+    NineSlice* m_bg = nullptr;
+    NineSlice* m_bg2 = nullptr;
 
     Achievement m_achievement;
 
     AchievementPopup(int);
 
     virtual bool init() override;
-
-private:
-
-    void setupNormal();
-    void setupSpecial();
-    void setupSecret();
-    void setupDivine();
-
-    void showNormal();
-    void showSpecial();
-    void showSecret();
-    void showDivine();
 
 public:
 

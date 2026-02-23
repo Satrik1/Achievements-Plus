@@ -68,7 +68,6 @@ bool ProMenuLayer::init() {
         CCScheduler::get()->scheduleSelector(schedule_selector(Achievement22Updater::update), updater, 0.05f, kCCRepeatForever, 0.f, false);
     } else {
         Utils::setHookEnabled("cocos2d::CCTouchDispatcher::touches", false);
-        Utils::setHookEnabled("cocos2d::CCKeyboardDispatcher::dispatchKeyboardMSG", false);
     }
 
     return true;

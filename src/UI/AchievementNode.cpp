@@ -37,8 +37,8 @@ void AchievementNode::onCheckmark(CCObject* sender) {
         return;
     }
 
-    for (auto popup : am.m_queuedPopups) {
-        if (popup->getAchievementId() == id) {
+    for (auto popupId : am.m_queuedPopups) {
+        if (popupId == id) {
             return;
         }
     }
@@ -70,11 +70,10 @@ void AchievementNode::init(int id) {
 
     addChild(menu, 6);
 
-    auto bg = CCScale9Sprite::create("square02b_001.png");
+    auto bg = NineSlice::create("square02b_001.png");
     bg->setOpacity(30);
     bg->setColor({0, 0, 0});    
-    bg->setScale(0.9f);
-    bg->setContentSize(ccp(238, getContentHeight()) / bg->getScale());
+    bg->setContentSize({238, getContentHeight()});
     bg->setPosition({6, 0});
     bg->setAnchorPoint({0, 0});
 
@@ -112,7 +111,7 @@ void AchievementNode::init(int id) {
     
     menu->addChild(btn);
 
-    auto tagBg = CCScale9Sprite::create("square02b_001.png");
+    auto tagBg = NineSlice::create("square02b_001.png");
     tagBg->setOpacity(30);
     tagBg->setColor({0, 0, 0});    
     tagBg->setScale(0.22f);
@@ -131,11 +130,10 @@ void AchievementNode::init(int id) {
     Utils::colorLabel(tagLabel, Utils::getTagLabelColors(achievement.rarity));
 
     if (!am.isAchievementCompleted(id)) {
-        auto overlay = CCScale9Sprite::create("square02b_001.png");
+        auto overlay = NineSlice::create("square02b_001.png");
         overlay->setOpacity(20);
         overlay->setColor({0, 0, 0});    
-        overlay->setScale(0.9f);
-        overlay->setContentSize(ccp(238, getContentHeight()) / overlay->getScale());
+        overlay->setContentSize({238, getContentHeight()});
         overlay->setPosition({6, 0});
         overlay->setAnchorPoint({0, 0});
 

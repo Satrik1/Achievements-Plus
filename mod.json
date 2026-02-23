@@ -1,19 +1,22 @@
 {
-	"geode": "4.10.0",
+	"geode": "5.0.0",
 	"gd": {
-		"win": "2.2074",
-		"android": "2.2074",
-		"mac": "2.2074",
-		"ios": "2.2074"
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
 	},
 	"id": "satrik.achievements_plus",
 	"name": "Achievements Plus",
 	"developer": "Satrik",
-	"version": "v1.0.1",
+	"version": "v1.0.2",
 	"description": "Adds new unique achievements to the game.",
 	"links": {
 		"source": "https://github.com/Satrik1/Achievements-Plus"
 	},
+	"tags": [
+		"universal", "gameplay", "offline", "enhancement", "interface", "content"
+	],
 	"resources": {
 		"files": [
 			"resources/sounds/*.ogg",

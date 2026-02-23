@@ -12,24 +12,19 @@ int AchievementPopup::getAchievementId() {
 }
     
 void AchievementPopup::show() {
-    Utils::setHookEnabled("cocos2d::CCScene::getHighestChildZ", true);
-
     SoundManager::play(
         Utils::getSoundPath(m_achievement.rarity),
         Utils::getSoundVolume(m_achievement.rarity),
         Utils::getSoundPitch(m_achievement.rarity)
     );
 
-    auto scene = CCScene::get();
     auto winSize = CCDirector::get()->getWinSize();
 
-    this->setZOrder(scene->getHighestChildZ() + 999);
-    scene->addChild(this);
-
     Manager::get().m_currentPopup = this;
-    SceneManager::get()->keepAcrossScenes(this);
+    OverlayManager::get()->addChild(this);
 
     this->setPosition({winSize.width / 2.f, winSize.height + 50});
+    
     m_layerColor->runAction(CCSequence::create(
         CCEaseBounceOut::create(CCMoveBy::create(0.3f, {0, -102})),
         CCDelayTime::create(Utils::getPopupDuration(m_achievement.rarity)),
@@ -40,7 +35,6 @@ void AchievementPopup::show() {
         CCDelayTime::create(0.1f),
         CallFuncExt::create([this] {
             auto& am = Manager::get();
-            Utils::setHookEnabled("cocos2d::CCScene::getHighestChildZ", false);
             am.m_currentPopup = nullptr;
             am.nextAchievement();
             removeFromParent();
@@ -75,7 +69,7 @@ bool AchievementPopup::init() {
 
     m_layerColor->addChild(m_glow);
 
-    m_bg = CCScale9Sprite::create("GJ_square01.png");
+    m_bg = NineSlice::create("GJ_square01.png");
     m_bg->setContentSize({300, 80});
 
     m_layerColor->addChild(m_bg);
@@ -109,7 +103,7 @@ bool AchievementPopup::init() {
 
     m_layerColor->addChild(descriptionLabel, 2);
 
-    m_bg2 = CCScale9Sprite::create("square02b_001.png");
+    m_bg2 = NineSlice::create("square02b_001.png");
     m_bg2->setOpacity(0);
     m_bg2->setContentSize({300, 80});
     m_bg2->setOpacity(255);

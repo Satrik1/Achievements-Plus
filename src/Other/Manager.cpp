@@ -6,7 +6,6 @@
 
 $on_mod(Loaded) {
     Manager::get().load();
-    Utils::setHookEnabled("cocos2d::CCScene::getHighestChildZ", false);
 }
 
 Manager& Manager::get() {
@@ -121,10 +120,7 @@ void Manager::completeAchievement(int id) {
 }
 
 void Manager::showAchievement(int id) {
-    auto popup = Utils::createPopup(id);
-    popup->retain();
-
-    m_queuedPopups.push_back(popup);
+    m_queuedPopups.push_back(id);
     
     if (!m_currentPopup) {
         Manager::nextAchievement();
@@ -136,7 +132,7 @@ void Manager::nextAchievement() {
         return;
     }
 
-    m_queuedPopups.front()->show();
+    Utils::createPopup(m_queuedPopups.front())->show();
     m_queuedPopups.pop_front();
 
     if (m_queuedPopups.empty()) {
@@ -172,6 +168,7 @@ void Manager::checkAchievement(const Achievement& achievement) {
         case Type::Deaths: amount = m_deaths; break;
         case Type::Attempts: amount = gsm->getStat("2"); break;
         case Type::Achievements: amount = m_completedAchievements.size(); break;
+        default: break;
     }
 
     if (amount >= achievement.statAmount) {

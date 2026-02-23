@@ -9,7 +9,6 @@ ProPlayLayer::Fields::~Fields() {
     // Leave the game open without playing for 5 minutes
     if (!am.isAchievementCompleted(22)) {
         Utils::setHookEnabled("cocos2d::CCTouchDispatcher::touches", true);
-        Utils::setHookEnabled("cocos2d::CCKeyboardDispatcher::dispatchKeyboardMSG", true);
     }
 }
 
@@ -373,7 +372,6 @@ void ProPlayLayer::setupHasCompleted() {
     // Leave the game open without playing for 5 minutes
     if (!am.isAchievementCompleted(22)) {
         Utils::setHookEnabled("cocos2d::CCTouchDispatcher::touches", false);
-        Utils::setHookEnabled("cocos2d::CCKeyboardDispatcher::dispatchKeyboardMSG", false);
     }
 }
 
